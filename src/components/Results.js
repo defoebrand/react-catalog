@@ -1,9 +1,10 @@
-import '../styles/Navbar.scss';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import '../styles/Results.scss';
+
 const Results = ({ filter }) => (
-  <header className="Navbar">
+  <header className="Results">
     <p>{filter}</p>
   </header>
 );

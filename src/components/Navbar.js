@@ -1,8 +1,10 @@
-import '../styles/Navbar.scss';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import runSearch from '../store/actions';
+
+import runSearch from '../redux/actions';
+
+import '../styles/Navbar.scss';
 
 class Navbar extends Component {
   constructor(props) {

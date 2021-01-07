@@ -1,6 +1,7 @@
+import Navbar from '../components/Navbar';
+import Results from '../components/Results';
+
 import '../styles/App.scss';
-import Navbar from './Navbar';
-import Results from './Results';
 
 const App = () => (
   <div className="App">
