@@ -1,7 +1,5 @@
-import { SUBMIT } from './reducer';
-
 const runSearch = input => ({
-  type: SUBMIT,
+  type: 'SUBMIT',
   input,
 });
 
