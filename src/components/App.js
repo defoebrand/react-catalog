@@ -1,15 +1,13 @@
 import '../styles/App.css';
+import Navbar from './Navbar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Hello World!
-        </p>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <Navbar />
+    <p>
+      Hello World!
+    </p>
+  </div>
+);
 
 export default App;
