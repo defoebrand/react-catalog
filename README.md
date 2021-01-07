@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+> This project is a React based catalog built is the capstone project for the Microverse React module coursework.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+The project is a react catalog app designed to display resources fetched from an API.
 
-In the project directory, you can run:
+###### Screenshot coming soon!
 
-### `npm start`
+#### Features
+-   To Be Determined Upon Completion
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+###### Coming Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Built With
+-   Atom
+-   Ubuntu
+-   Node.js / npm 
+-   React / React-DOM / Redux
+-   React-Create-App
+-   JavaScript ES6 / HTML / CSS
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Live Demo
+Try it out [here](https://react-catalog.herokuapp.com)
+#### Deployed on: Heroku
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started Locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisities
+To get this project up and running locally, you must have node and npm installed on your computer.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**To get this project set up on your local machine, follow these simple steps:**
 
-### `npm run eject`
+**Step 1**<br>
+Navigate to the local folder where you want the repository to be cloned and run
+`git clone https://github.com/defoebrand/react-catalog.git`.<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Step 2**<br>
+Next, run `cd react-catalog`.<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Step 3**<br>
+Run `npm start` to begin the server.<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Step 4**<br>
+Navigate to `http://localhost:3000/` in a browser of your choice to see the application running<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Testing
+This project uses Jest for testing.
+> To run tests open a terminal inside the project's root directory and enter `npm test`
 
-## Learn More
+## Authors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👤 **Brandon Defoe**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-   Portfolio: [defoebrand](https://www.defoebrand.com)
+-   Github: [@defoebrand](https://github.com/defoebrand)
+-   LinkedIn: [@defoebrand](https://www.linkedin.com/in/defoebrand/)
+-   Gmail: <mailto:defoe.brand@gmail.com>
 
-### Code Splitting
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Our favorite contributions are those that help us improve the project, so please leave an issue or a feature request if you have any suggestions!
 
-### Analyzing the Bundle Size
+Feel free to check the [issues page](https://github.com/defoebrand/react-catalog/issues) to either create an issue or help us out by fixing an existing one.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Show your support
 
-### Making a Progressive Web App
+If you've read this far....give us a ⭐️!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## :clap: Acknowledgements
 
-### Advanced Configuration
+-   Microverse
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📝 License
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed by Microverse
