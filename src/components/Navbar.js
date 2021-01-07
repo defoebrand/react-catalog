@@ -27,16 +27,15 @@ class Navbar extends Component {
         });
       }
     });
+
     fetch('https://vast-ridge-45587.herokuapp.com/').then(response => response.json()).then(data => {
       data.forEach(book => {
-        // dispatch(createBook(book));
         console.log(book);
       });
     }).catch(err => (err));
   }
 
     handleChange = event => {
-      // const { input } = this.state;
       this.setState({
         input: event.target.value,
       });
@@ -44,12 +43,10 @@ class Navbar extends Component {
 
     render() {
       const { input } = this.state;
-      // const { results } = this.props;
       return (
         <header className="Navbar">
           <h1>Hello!</h1>
           <input value={input} onChange={this.handleChange} />
-          {/* <p>{results}</p> */}
         </header>
       );
     }
@@ -59,5 +56,3 @@ Navbar.propTypes = {
 };
 
 export default connect(null)(Navbar);
-
-// export default Navbar;
