@@ -1,27 +1,40 @@
+// import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import '../styles/Card.scss';
 
-const Card = ({ data }) => (
-  <div className="Card">
-    <h1>{data.title}</h1>
-    <img src={data.img} alt={`Example of "${data.title}"`} />
-    <h4>{data.desc}</h4>
-    <p>{data.info}</p>
-  </div>
-);
+const Card = ({ entry }) => {
+  const handleClick = () => {
+    console.log(entry);
+  };
+
+  return (
+    <>
+      <button type="button" key={entry.id} className="Card" onClick={() => handleClick()}>
+        {/* console.log(entry) */}
+        <p>{entry.name}</p>
+        <img src={entry.images.lg} alt={entry.name} />
+      </button>
+    </>
+
+  );
+};
 
 Card.propTypes = {
-  data: PropTypes.objectOf({
-    title: PropTypes.string,
-    img: PropTypes.string,
-    desc: PropTypes.string,
-    info: PropTypes.string,
+  entry: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    images: PropTypes.shape({
+      lg: PropTypes.string,
+    }),
   }),
 };
 
 Card.defaultProps = {
-  data: {},
+  entry: {},
+
 };
+
+// export default connect(state => ({ books: state.books }))(Card);
 
 export default Card;
