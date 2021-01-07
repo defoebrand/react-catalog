@@ -27,12 +27,11 @@ class Navbar extends Component {
         });
       }
     });
-    fetch('https://vast-ridge-45587.herokuapp.com/').then(response => response.json()).then(data => {
-      data.forEach(book => {
-        // dispatch(createBook(book));
-        console.log(book);
-      });
-    }).catch(err => (err));
+    // fetch('https://vast-ridge-45587.herokuapp.com/').then(response => response.json()).then(data => {
+    //   data.forEach(book => {
+    //     // dispatch(createBook(book));
+    //   });
+    // }).catch(err => (err));
   }
 
     handleChange = event => {
