@@ -9,7 +9,6 @@ import '../styles/Navbar.scss';
 const Navbar = ({ dispatch }) => {
   useEffect(() => {
     fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
-      // console.log(data);
       dispatch(createEntries(data));
     }).catch(err => err);
   }, []);
@@ -21,9 +20,14 @@ const Navbar = ({ dispatch }) => {
     dispatch(runSearch(input));
   };
 
+  const handleClick = () => {
+    alert('BATMAN!');
+  };
+
   return (
     <header className="Navbar">
-      <h1>Hello!</h1>
+      <button type="button" className="batLogo" onClick={handleClick}><img src="./batLogo.jpg" alt="BatComputer" /></button>
+      <h1>BatComputer</h1>
       <input value={input} onChange={handleChange} />
       {/* }<input type="submit" value="Submit" onClick={handleClick} /> */}
     </header>

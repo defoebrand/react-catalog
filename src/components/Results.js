@@ -8,13 +8,15 @@ import Card from './Card';
 import '../styles/Results.scss';
 
 const Results = ({
-  filter, entries, dispatch, display, singleEntry,
+  filter, entries, dispatch, history,
 }) => {
+  console.log(entries[0]);
   const superHeroes = Array.isArray(entries) ? entries : [];
   // console.log('result entries', entries);
   // console.log('result filter', filter);
-  const handleClick = entry => {
-    dispatch(displayEntry(entry));
+  const handleClick = character => {
+    dispatch(displayEntry(character));
+    history.push('/card');
   };
   const dataMap = (
     filter === ''
@@ -27,14 +29,14 @@ const Results = ({
         <Card key={entry.slug} entry={entry} clickEvent={handleClick} />)))
   );
 
-  const singleCard = (
-    <Card key={singleEntry.id} entry={singleEntry} clickEvent={handleClick} singleEntry="yes" />
-  );
+  // const singleCard = (
+  //   <Card key={singleEntry.id} entry={singleEntry} clickEvent={handleClick} singleEntry="yes" />
+  // );
 
   return (
     <main className="Results">
       <p>{filter}</p>
-      {display === 'singleCard' ? singleCard : dataMap}
+      {dataMap}
     </main>
   );
 };
@@ -52,14 +54,15 @@ Results.propTypes = {
     id: PropTypes.number,
   }),
   dispatch: PropTypes.func.isRequired,
-  display: PropTypes.string,
+  // display: PropTypes.string,
+  history: PropTypes.shape().isRequired,
 };
 
 Results.defaultProps = {
   filter: '',
   entries: [],
   singleEntry: {},
-  display: '',
+  // display: '',
 };
 
 export default connect(state => ({

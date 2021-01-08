@@ -38,6 +38,7 @@ const searchReducer = (state = initialState, action) => {
       // console.log('submit action', action);
       return {
         filter: action.input,
+        display: 'manyCards',
       };
 
     default:

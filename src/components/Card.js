@@ -1,99 +1,115 @@
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import '../styles/Card.scss';
 
-const Card = ({ entry, clickEvent, singleEntry }) => {
-  const displayOne = (
-    <div key={entry.id} className="Card">
-      <h1>{entry.name}</h1>
-      <img src={entry.images.lg} alt={entry.name} />
-      <table style={{ width: '100%' }}>
-        <tr>
-          <th>Full Name: </th>
-          <td><h3>{entry.biography.fullName}</h3></td>
-        </tr>
-        <tr>
-          <th>First Appearance: </th>
-          <td>{entry.biography.firstAppearance}</td>
-        </tr>
-        <tr>
-          <th>Gender: </th>
-          <td>{entry.appearance.gender}</td>
-        </tr>
-        <tr>
-          <th>Height: </th>
-          <td>{entry.appearance.height[0]}</td>
-        </tr>
-        <tr>
-          <th>Eye Color: </th>
-          <td>{entry.appearance.eyeColor}</td>
-        </tr>
-        <tr>
-          <th>Hair Color: </th>
-          <td>{entry.appearance.hairColor}</td>
-        </tr>
-        <tr>
-          <th>Race: </th>
-          <td>{entry.appearance.race}</td>
-        </tr>
-        <tr>
-          <th>Affiliation: </th>
-          <td>{entry.connections.groupAffiliation}</td>
-        </tr>
-        <tr>
-          <th>Relatives: </th>
-          <td>{entry.connections.relatives}</td>
-        </tr>
-        <tr>
-          <p>POWER STATS</p>
-        </tr>
-        <tr>
-          <th>Combat: </th>
-          <td>{entry.powerstats.combat}</td>
-        </tr>
-        <tr>
-          <th>Durability: </th>
-          <td>{entry.powerstats.durability}</td>
-        </tr>
-        <tr>
-          <th>Intelligence: </th>
-          <td>{entry.powerstats.intelligence}</td>
-        </tr>
-        <tr>
-          <th>Power: </th>
-          <td>{entry.powerstats.power}</td>
-        </tr>
-        <tr>
-          <th>Speed: </th>
-          <td>{entry.powerstats.speed}</td>
-        </tr>
-        <tr>
-          <th>Strength: </th>
-          <td>{entry.powerstats.strength}</td>
-        </tr>
+const Card = ({
+  entry, clickEvent, display, character,
+}) => {
+  // console.log('card entry', entry);
+  console.log('character', character);
+  console.log('display', display);
+  // console.log('singleEntry', singleEntry);
+  // const character = entry === {} ? entry[0] : entry;
+  let displayOne;
+  let displayMany;
+  if (display === 'singleCard') {
+    displayOne = (
+      <div key={character.id} className="Card">
+        <h1>{character.name}</h1>
+        <img src={character.images.lg} alt={character.name} />
+        <table style={{ width: '100%' }}>
+          <tr>
+            <th>Full Name: </th>
+            <td><h3>{character.biography.fullName}</h3></td>
+          </tr>
+          <tr>
+            <th>First Appearance: </th>
+            <td>{character.biography.firstAppearance}</td>
+          </tr>
+          <tr>
+            <th>Gender: </th>
+            <td>{character.appearance.gender}</td>
+          </tr>
+          <tr>
+            <th>Height: </th>
+            <td>{character.appearance.height[0]}</td>
+          </tr>
+          <tr>
+            <th>Eye Color: </th>
+            <td>{character.appearance.eyeColor}</td>
+          </tr>
+          <tr>
+            <th>Hair Color: </th>
+            <td>{character.appearance.hairColor}</td>
+          </tr>
+          <tr>
+            <th>Race: </th>
+            <td>{character.appearance.race}</td>
+          </tr>
+          <tr>
+            <th>Affiliation: </th>
+            <td>{character.connections.groupAffiliation}</td>
+          </tr>
+          <tr>
+            <th>Relatives: </th>
+            <td>{character.connections.relatives}</td>
+          </tr>
+          <tr>
+            <p>POWER STATS</p>
+          </tr>
+          <tr>
+            <th>Combat: </th>
+            <td>{character.powerstats.combat}</td>
+          </tr>
+          <tr>
+            <th>Durability: </th>
+            <td>{character.powerstats.durability}</td>
+          </tr>
+          <tr>
+            <th>Intelligence: </th>
+            <td>{character.powerstats.intelligence}</td>
+          </tr>
+          <tr>
+            <th>Power: </th>
+            <td>{character.powerstats.power}</td>
+          </tr>
+          <tr>
+            <th>Speed: </th>
+            <td>{character.powerstats.speed}</td>
+          </tr>
+          <tr>
+            <th>Strength: </th>
+            <td>{character.powerstats.strength}</td>
+          </tr>
 
-      </table>
+        </table>
 
-    </div>
-  );
-  const displayMany = (
-    <button type="button" key={entry.id} className="Card" onClick={() => clickEvent(entry)}>
-      <p>{entry.name}</p>
-      <img src={entry.images.lg} alt={entry.name} />
-    </button>
-  );
+      </div>
+    );
+  } else {
+    displayMany = (
+      <button type="button" key={entry.slug} className="Card" onClick={() => clickEvent(entry)}>
+        <p>{entry.name}</p>
+        <img src={entry.images.lg} alt={entry.name} />
+      </button>
+    );
+  }
   return (
     <>
-      {singleEntry === 'yes' ? displayOne : displayMany}
+      { /* displayMany */}
+      {/* console.log(displayOne) */}
+      { display === 'singleCard' ? displayOne : displayMany }
     </>
 
   );
 };
 
 Card.propTypes = {
-  entry: PropTypes.shape({
+  character: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
+    slug: PropTypes.string,
     images: PropTypes.shape({
       lg: PropTypes.string,
     }),
@@ -122,12 +138,25 @@ Card.propTypes = {
     }),
   }),
   clickEvent: PropTypes.func.isRequired,
-  singleEntry: PropTypes.string,
+  display: PropTypes.string,
+  entry: PropTypes.shape({
+    name: PropTypes.string,
+    slug: PropTypes.string,
+    images: PropTypes.shape({
+      lg: PropTypes.string,
+    }),
+  }),
 };
 
 Card.defaultProps = {
+  character: {},
   entry: {},
-  singleEntry: '',
+  display: '',
 };
 
-export default Card;
+export default connect(state => ({
+  display: state.superHeroReducer.display,
+  character: state.superHeroReducer.entry,
+}))(Card);
+
+// export default Card;
