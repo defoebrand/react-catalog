@@ -6,9 +6,6 @@ import '../styles/App.scss';
 const App = () => (
   <div className="App">
     <Navbar />
-    <p>
-      Hello World!
-    </p>
     <Results />
   </div>
 );

@@ -1,22 +1,24 @@
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 
-const initialState = 'All';
+import { SUBMIT, CREATE_ENTRY, DISPLAY_ENTRY } from './actions';
 
-const searchReducer = (state = initialState, action) => {
+const initialState = '';
+
+const initialHeroes = [];
+
+const superHeroReducer = (state = initialHeroes, action) => {
   switch (action.type) {
-    case 'SUBMIT':
-      return {
-        filter: action.input,
-      };
-
-    case 'CREATE_ENTRY':
-      localStorage.entries = JSON.stringify(action.entries);
+    case CREATE_ENTRY:
+      // console.log('create entry state', state);
+      // console.log('create entry action', action);
+      // localStorage.entries = JSON.stringify(action.entries);
       return {
         entries: action.entries,
       };
 
-    case 'DISPLAY_ENTRY':
-      console.log(action);
+    case DISPLAY_ENTRY:
+      console.log('display entry state', state);
+      console.log('display entry action', action);
       // localStorage.entries = JSON.stringify(action.entry);
       return {
         entry: action.entry,
@@ -24,10 +26,29 @@ const searchReducer = (state = initialState, action) => {
       };
 
     default:
-      return {
-        filter: state,
-      };
+      // console.log('default entry state', state);
+      return state;
   }
 };
 
-export default createStore(searchReducer);
+const searchReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case SUBMIT:
+      // console.log('submit state', state.filter);
+      // console.log('submit action', action);
+      return {
+        filter: action.input,
+      };
+
+    default:
+      // console.log('default submit state', state.filter);
+      return state;
+  }
+};
+
+const combinedReducers = combineReducers({
+  superHeroReducer,
+  searchReducer,
+});
+
+export default createStore(combinedReducers);

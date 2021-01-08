@@ -10,20 +10,21 @@ import '../styles/Results.scss';
 const Results = ({
   filter, entries, dispatch, display, singleEntry,
 }) => {
-  const superEntries = localStorage.entries ? JSON.parse(localStorage.entries) : [];
-  console.log(entries);
+  const superHeroes = Array.isArray(entries) ? entries : [];
+  // console.log('result entries', entries);
+  // console.log('result filter', filter);
   const handleClick = entry => {
     dispatch(displayEntry(entry));
   };
   const dataMap = (
     filter === ''
-      ? (superEntries.map(entry => (
+      ? (superHeroes.map(entry => (
         <Card key={entry.id} entry={entry} clickEvent={handleClick} />)))
-      : (superEntries.filter(entry => {
+      : (superHeroes.filter(entry => {
         const regex = new RegExp(filter, 'i');
         return (regex.test(entry.name));
       }).map(entry => (
-        <Card key={entry.id} entry={entry} clickEvent={handleClick} />)))
+        <Card key={entry.slug} entry={entry} clickEvent={handleClick} />)))
   );
 
   const singleCard = (
@@ -43,7 +44,7 @@ Results.propTypes = {
   entries: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      id: PropTypes.number,
+      slug: PropTypes.string,
     }),
   ),
   singleEntry: PropTypes.shape({
@@ -62,8 +63,8 @@ Results.defaultProps = {
 };
 
 export default connect(state => ({
-  filter: state.filter,
-  entries: state.entries,
-  display: state.display,
-  singleEntry: state.entry,
+  filter: state.searchReducer.filter,
+  entries: state.superHeroReducer.entries,
+  display: state.superHeroReducer.display,
+  singleEntry: state.superHeroReducer.entry,
 }))(Results);
