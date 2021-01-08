@@ -1,6 +1,9 @@
-const runSearch = input => ({
+export const runSearch = input => ({
   type: 'SUBMIT',
   input,
 });
 
-export default runSearch;
+export const createEntries = entries => ({
+  type: 'CREATE_ENTRY',
+  entries,
+});

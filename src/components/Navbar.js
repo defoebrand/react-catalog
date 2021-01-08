@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import runSearch from '../redux/actions';
+import { runSearch, createEntries } from '../redux/actions';
 
 import '../styles/Navbar.scss';
 
@@ -13,42 +13,61 @@ class Navbar extends Component {
       input: '',
     };
     this.handleChange.bind(this);
+    this.handleClick.bind(this);
+
+    // fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
+    //   console.log(data);
+    //   // dispatch(createEntries(data));
+    // }).catch(err => err);
   }
 
   componentDidMount() {
     const { dispatch } = this.props;
+    fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
+      console.log(data);
 
-    document.body.addEventListener('keypress', event => {
-      const { input } = this.state;
-      if (event.key === 'Enter') {
-        dispatch(runSearch(input));
-        this.setState({
-          input: '',
-        });
-      }
-    });
-    // fetch('https://vast-ridge-45587.herokuapp.com/').then(response => response.json()).then(data => {
-    //   data.forEach(book => {
-    //     // dispatch(createBook(book));
-    //   });
-    // }).catch(err => (err));
+      localStorage.entries = JSON.stringify(data);
+
+      dispatch(createEntries(data));
+      // console.log(supers);
+    }).catch(err => err);
+  //   document.body.addEventListener('keypress', event => {
+  //     const { input } = this.state;
+  //     if (event.key === 'Enter') {
+  //       dispatch(runSearch(input));
+  //       this.setState({
+  //         input: '',
+  //       });
+  //     }
+  //   });
   }
 
     handleChange = event => {
-      // const { input } = this.state;
+      const { dispatch } = this.props;
+
       this.setState({
         input: event.target.value,
+      });
+      dispatch(runSearch(event.target.value));
+    }
+
+    handleClick = () => {
+      const { input } = this.state;
+      const { dispatch } = this.props;
+      dispatch(runSearch(input));
+      this.setState({
+        input: '',
       });
     }
 
     render() {
       const { input } = this.state;
-      // const { results } = this.props;
+
       return (
         <header className="Navbar">
           <h1>Hello!</h1>
           <input value={input} onChange={this.handleChange} />
-          {/* <p>{results}</p> */}
+          <input type="submit" value="Submit" onClick={this.handleClick} />
         </header>
       );
     }
@@ -58,5 +77,3 @@ Navbar.propTypes = {
 };
 
 export default connect(null)(Navbar);
-
-// export default Navbar;

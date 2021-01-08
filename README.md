@@ -1,4 +1,4 @@
-> This project is a React based catalog built is the capstone project for the Microverse React module coursework.
+> This project is a React based catalog built as the capstone project for the Microverse React module coursework.
 
 ## Project Description
 
