@@ -8,10 +8,19 @@ const searchReducer = (state = initialState, action) => {
       return {
         filter: action.input,
       };
+
     case 'CREATE_ENTRY':
       localStorage.entries = JSON.stringify(action.entries);
       return {
         entries: action.entries,
+      };
+
+    case 'DISPLAY_ENTRY':
+      console.log(action);
+      // localStorage.entries = JSON.stringify(action.entry);
+      return {
+        entry: action.entry,
+        display: 'singleCard',
       };
 
     default:

@@ -1,27 +1,39 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { displayEntry } from '../redux/actions';
+
 import Card from './Card';
 
 import '../styles/Results.scss';
 
-const Results = ({ filter, entries }) => {
-  const superEntries = JSON.parse(localStorage.entries);
+const Results = ({
+  filter, entries, dispatch, display, singleEntry,
+}) => {
+  const superEntries = localStorage.entries ? JSON.parse(localStorage.entries) : [];
   console.log(entries);
+  const handleClick = entry => {
+    dispatch(displayEntry(entry));
+  };
   const dataMap = (
     filter === ''
       ? (superEntries.map(entry => (
-        <Card key={entry.id} entry={entry} />)))
+        <Card key={entry.id} entry={entry} clickEvent={handleClick} />)))
       : (superEntries.filter(entry => {
         const regex = new RegExp(filter, 'i');
         return (regex.test(entry.name));
       }).map(entry => (
-        <Card key={entry.id} entry={entry} />)))
+        <Card key={entry.id} entry={entry} clickEvent={handleClick} />)))
   );
+
+  const singleCard = (
+    <Card key={singleEntry.id} entry={singleEntry} clickEvent={handleClick} singleEntry="yes" />
+  );
+
   return (
     <main className="Results">
       <p>{filter}</p>
-      {dataMap}
+      {display === 'singleCard' ? singleCard : dataMap}
     </main>
   );
 };
@@ -34,14 +46,24 @@ Results.propTypes = {
       id: PropTypes.number,
     }),
   ),
+  singleEntry: PropTypes.shape({
+    name: PropTypes.string,
+    id: PropTypes.number,
+  }),
+  dispatch: PropTypes.func.isRequired,
+  display: PropTypes.string,
 };
 
 Results.defaultProps = {
   filter: '',
   entries: [],
+  singleEntry: {},
+  display: '',
 };
 
 export default connect(state => ({
   filter: state.filter,
   entries: state.entries,
+  display: state.display,
+  singleEntry: state.entry,
 }))(Results);
