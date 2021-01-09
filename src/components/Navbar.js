@@ -9,7 +9,7 @@ import '../styles/Navbar.scss';
 const Navbar = ({ dispatch, history, display }) => {
   useEffect(() => {
     fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
-      dispatch(createEntries(data));
+      dispatch(createEntries([...data.slice(0, 5)]));
       history.push('/all');
     }).catch(err => err);
   }, []);
@@ -17,7 +17,6 @@ const Navbar = ({ dispatch, history, display }) => {
   let input;
 
   const handleChange = event => {
-    console.log('nav display', display);
     if (display === 'singleCard') {
       dispatch(displayEntries('manyCards'));
     }
@@ -32,6 +31,7 @@ const Navbar = ({ dispatch, history, display }) => {
     if (display === 'singleCard') {
       dispatch(displayEntries('manyCards'));
     }
+    dispatch(runSearch(''));
     history.push('/all');
   };
 
@@ -40,7 +40,6 @@ const Navbar = ({ dispatch, history, display }) => {
       <button type="button" className="batLogo" onClick={handleClick}><img src="./batLogo.png" alt="BatComputer" /></button>
       <h1>BatComputer</h1>
       <input value={input} onChange={handleChange} />
-      {/* <input type="submit" value="Submit" onClick={handleClick} /> */}
     </header>
   );
 };
