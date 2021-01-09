@@ -3,14 +3,32 @@
   min-height: 10vh;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  font-size: calc(10px + 2vmin);
+  justify-content: center;
+  font-size: calc(5px + 2.5vw);
   color: white;
-  padding: 0 25px;
+  padding: 25px;
+  padding-bottom: 0;
+
+  .batLogo {
+    width: 35%;
+    max-width: 350px;
+    border: none;
+    background-color: inherit;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  h1 {
+    width: 65%;
+  }
 
   input {
     border-radius: 4px;
     padding-left: 3px;
+    margin: 15px auto;
   }
 }

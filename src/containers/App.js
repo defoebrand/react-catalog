@@ -1,15 +1,16 @@
+import { Route } from 'react-router-dom';
+
 import Navbar from '../components/Navbar';
-import Results from '../components/Results';
+import Display from '../components/Display';
+import Card from '../components/Card';
 
 import '../styles/App.scss';
 
 const App = () => (
   <div className="App">
-    <Navbar />
-    <p>
-      Hello World!
-    </p>
-    <Results />
+    <Route path="/" component={Navbar} />
+    <Route path="/all" component={Display} />
+    <Route path="/card/:super" component={Card} />
   </div>
 );
 

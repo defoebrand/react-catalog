@@ -1,15 +1,19 @@
-.Card {
+.singleCard {
   border: 1px solid white;
   margin: 10px;
   padding: 10px;
   cursor: pointer;
-  // overflow: hidden;
 
-  iframe {
-    // height: 300px;
-    // width: 150px;
-    // margin-top: -150px;
+  img {
+    max-width: 100%;
   }
+}
+
+.manyCards {
+  border: 1px solid white;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
 
   img {
     max-width: 100%;

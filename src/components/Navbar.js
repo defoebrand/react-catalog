@@ -1,79 +1,59 @@
-import { Component } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { runSearch, createEntries } from '../redux/actions';
+import { runSearch, createEntries, displayEntries } from '../redux/actions';
 
 import '../styles/Navbar.scss';
 
-class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      input: '',
-    };
-    this.handleChange.bind(this);
-    this.handleClick.bind(this);
-
-    // fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
-    //   console.log(data);
-    //   // dispatch(createEntries(data));
-    // }).catch(err => err);
-  }
-
-  componentDidMount() {
-    const { dispatch } = this.props;
+const Navbar = ({ dispatch, history, display }) => {
+  useEffect(() => {
     fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
-      console.log(data);
-
-      localStorage.entries = JSON.stringify(data);
-
-      dispatch(createEntries(data));
-      // console.log(supers);
+      dispatch(createEntries([...data.slice(0, 5)]));
+      history.push('/all');
     }).catch(err => err);
-  //   document.body.addEventListener('keypress', event => {
-  //     const { input } = this.state;
-  //     if (event.key === 'Enter') {
-  //       dispatch(runSearch(input));
-  //       this.setState({
-  //         input: '',
-  //       });
-  //     }
-  //   });
-  }
+  }, []);
 
-    handleChange = event => {
-      const { dispatch } = this.props;
+  let input;
 
-      this.setState({
-        input: event.target.value,
-      });
-      dispatch(runSearch(event.target.value));
+  const handleChange = event => {
+    if (display === 'singleCard') {
+      dispatch(displayEntries('manyCards'));
     }
-
-    handleClick = () => {
-      const { input } = this.state;
-      const { dispatch } = this.props;
-      dispatch(runSearch(input));
-      this.setState({
-        input: '',
-      });
+    if (history.location.pathname !== '/all') {
+      history.push('/all');
     }
+    input = event.target.value;
+    dispatch(runSearch(input));
+  };
 
-    render() {
-      const { input } = this.state;
-
-      return (
-        <header className="Navbar">
-          <h1>Hello!</h1>
-          <input value={input} onChange={this.handleChange} />
-          <input type="submit" value="Submit" onClick={this.handleClick} />
-        </header>
-      );
+  const handleClick = () => {
+    if (display === 'singleCard') {
+      dispatch(displayEntries('manyCards'));
     }
-}
-Navbar.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+    dispatch(runSearch(''));
+    history.push('/all');
+  };
+
+  return (
+    <header className="Navbar">
+      <button type="button" className="batLogo" onClick={handleClick}><img src="./batLogo.png" alt="BatComputer" /></button>
+      <h1>BatComputer</h1>
+      <input value={input} onChange={handleChange} />
+    </header>
+  );
 };
 
-export default connect(null)(Navbar);
+Navbar.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  history: PropTypes.shape().isRequired,
+  display: PropTypes.string,
+};
+
+Navbar.defaultProps = {
+  display: '',
+};
+
+export default connect(state => ({
+  display: state.selectionReducer.display,
+}))(Navbar);
