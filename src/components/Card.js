@@ -98,7 +98,7 @@ const Card = ({
     displayCard = (
       <button type="button" key={entry.slug} className="manyCards" onClick={() => clickEvent(entry)}>
         <p>{entry.name}</p>
-        <img src={entry.images.lg} alt={entry.name} />
+        <img src={entry.images.sm} alt={entry.name} />
       </button>
     );
   }
@@ -147,7 +147,7 @@ Card.propTypes = {
     name: PropTypes.string,
     slug: PropTypes.string,
     images: PropTypes.shape({
-      lg: PropTypes.string,
+      sm: PropTypes.string,
     }),
   }),
   display: PropTypes.string,

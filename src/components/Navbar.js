@@ -1,19 +1,11 @@
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { runSearch, createEntries, displayEntries } from '../redux/actions';
+import { runSearch, displayEntries } from '../redux/actions';
 
 import '../styles/Navbar.scss';
 
 const Navbar = ({ dispatch, history, display }) => {
-  useEffect(() => {
-    fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
-      dispatch(createEntries([...data.slice(0, 5)]));
-      history.push('/all');
-    }).catch(err => err);
-  }, []);
-
   let input;
 
   const handleChange = event => {
