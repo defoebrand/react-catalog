@@ -1,14 +1,15 @@
 import { Route } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Results from '../components/Results';
+import AllCharacters from '../components/AllCharacters';
+// import Selection from '../components/Selection';
 import Card from '../components/Card';
 
 import '../styles/App.scss';
 
 const App = () => (
   <div className="App">
-    <Navbar />
-    <Route exact path="/" component={Results} />
+    <Route path="/" component={Navbar} />
+    <Route path="/all" component={AllCharacters} />
     <Route path="/card" component={Card} />
   </div>
 );

@@ -10,12 +10,12 @@ import store from './redux/store';
 import './styles/index.scss';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <React.StrictMode>
+  <React.StrictMode>
+    <BrowserRouter>
       <Provider store={store}>
         <App />
       </Provider>
-    </React.StrictMode>
-  </BrowserRouter>,
+    </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById('root'),
 );

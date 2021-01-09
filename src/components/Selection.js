@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import '../styles/Card.scss';
 
-const Card = ({
+const Selection = ({
   entry, clickEvent, character, filter, display,
 }) => {
   if (JSON.stringify(entry) === JSON.stringify({})
@@ -110,7 +110,7 @@ const Card = ({
   );
 };
 
-Card.propTypes = {
+Selection.propTypes = {
   character: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
@@ -155,7 +155,7 @@ Card.propTypes = {
   filter: PropTypes.string,
 };
 
-Card.defaultProps = {
+Selection.defaultProps = {
   character: {},
   entry: {},
   display: '',
@@ -166,6 +166,6 @@ export default connect(state => ({
   display: state.selectionReducer.display,
   character: state.selectionReducer.entry,
   filter: state.searchReducer.filter,
-}))(Card);
+}))(Selection);
 
 // export default Card;

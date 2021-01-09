@@ -5,12 +5,12 @@ import { displayEntry } from '../redux/actions';
 
 import Card from './Card';
 
-import '../styles/Results.scss';
+import '../styles/AllCharacters.scss';
 
-const Results = ({
+const AllCharacters = ({
   filter, entries, dispatch, history,
 }) => {
-  console.log(entries[0]);
+  console.log('entries', entries);
   const superHeroes = Array.isArray(entries) ? entries : [];
   // console.log('result entries', entries);
   // console.log('result filter', filter);
@@ -34,14 +34,14 @@ const Results = ({
   // );
 
   return (
-    <main className="Results">
+    <main className="AllCharacters">
       <p>{filter}</p>
       {dataMap}
     </main>
   );
 };
 
-Results.propTypes = {
+AllCharacters.propTypes = {
   filter: PropTypes.string,
   entries: PropTypes.arrayOf(
     PropTypes.shape({
@@ -58,7 +58,7 @@ Results.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 
-Results.defaultProps = {
+AllCharacters.defaultProps = {
   filter: '',
   entries: [],
   singleEntry: {},
@@ -70,4 +70,4 @@ export default connect(state => ({
   entries: state.superHeroReducer.entries,
   display: state.superHeroReducer.display,
   singleEntry: state.superHeroReducer.entry,
-}))(Results);
+}))(AllCharacters);
