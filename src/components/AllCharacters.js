@@ -15,8 +15,10 @@ const AllCharacters = ({
   // console.log('result entries', entries);
   // console.log('result filter', filter);
   const handleClick = character => {
+    // console.log('click event character', character);
     dispatch(displayEntry(character));
-    history.push('/card');
+    const test = '/card';
+    history.push(`${test}/${character.name}`);
   };
   const dataMap = (
     filter === ''
@@ -35,7 +37,7 @@ const AllCharacters = ({
 
   return (
     <main className="AllCharacters">
-      <p>{filter}</p>
+      {/* <p>{filter}</p> */}
       {dataMap}
     </main>
   );

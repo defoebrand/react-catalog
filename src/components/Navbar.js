@@ -9,7 +9,7 @@ import '../styles/Navbar.scss';
 const Navbar = ({ dispatch, history, display }) => {
   useEffect(() => {
     fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
-      dispatch(createEntries([...data.slice(0, 2)]));
+      dispatch(createEntries(data));
       history.push('/all');
     }).catch(err => err);
   }, []);
@@ -21,7 +21,7 @@ const Navbar = ({ dispatch, history, display }) => {
     if (display === 'singleCard') {
       dispatch(displayEntries('manyCards'));
     }
-    if (history.location.pathname === '/card') {
+    if (history.location.pathname !== '/all') {
       history.push('/all');
     }
     input = event.target.value;
@@ -29,7 +29,10 @@ const Navbar = ({ dispatch, history, display }) => {
   };
 
   const handleClick = () => {
-    alert('BATMAN!');
+    if (display === 'singleCard') {
+      dispatch(displayEntries('manyCards'));
+    }
+    history.push('/all');
   };
 
   return (

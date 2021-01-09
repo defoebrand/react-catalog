@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import '../styles/Card.scss';
 
 const Card = ({
-  entry, clickEvent, character, filter, display,
+  entry, clickEvent, character, display,
 }) => {
   if (JSON.stringify(entry) === JSON.stringify({})
    && JSON.stringify(character) === JSON.stringify({})) {
@@ -103,7 +103,7 @@ const Card = ({
   }
   return (
     <>
-      {filter}
+      {/* filter */}
       { display === 'singleCard' ? displayOne : displayMany }
     </>
 
@@ -152,14 +152,12 @@ Card.propTypes = {
     }),
   }),
   // history: PropTypes.shape().isRequired,
-  filter: PropTypes.string,
 };
 
 Card.defaultProps = {
   character: {},
   entry: {},
   display: '',
-  filter: '',
 };
 
 export default connect(state => ({
