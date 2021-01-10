@@ -32,7 +32,7 @@ const Navbar = ({ dispatch, history, display }) => {
   };
 
   const handleClick = () => {
-    dispatch(runSearch(input));
+    dispatch(runSearch(''));
     history.push('/all');
   };
 

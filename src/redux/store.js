@@ -45,7 +45,7 @@ const searchReducer = (state = initialState, action) => {
   }
 };
 
-const combinedReducers = combineReducers({
+export const combinedReducers = combineReducers({
   superHeroReducer,
   selectionReducer,
   searchReducer,
