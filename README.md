@@ -11,7 +11,8 @@ The project is a react catalog app designed to display resources fetched from an
 -   Easy searching by typing into the search bar.
 -   Return to catalog display by clicking a bat symbol or typing into the input bar.
 -   Dynamic URL creation displays the name of the selection
--   Image border displays Blue for Heroes and Red for Villians
+-   Image border displays Blue for Heroes
+-   Image border displays Red for Villians
 
 ###### Coming Features
 -   Enhanced search filters
