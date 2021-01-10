@@ -11,7 +11,7 @@ import '../styles/Navbar.scss';
 const Navbar = ({ dispatch, history, display }) => {
   useEffect(() => {
     fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
-      dispatch(createEntries([...data.slice(0, 5)]));
+      dispatch(createEntries(data));
       history.push('/all');
     }).catch(err => err);
   }, []);
