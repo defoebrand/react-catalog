@@ -13,18 +13,24 @@ const Card = ({
   }
 
   let displayCard;
+  let alignment;
   let alignmentStyle;
   if (display === 'singleCard') {
+    alignment = character.biography.alignment === 'good'
+      ? 'Hero'
+      : 'Villian';
     alignmentStyle = character.biography.alignment === 'good'
       ? { border: '3px solid blue' }
       : { border: '3px solid red' };
     displayCard = (
       <div key={character.slug} className="card singleCard">
-        <h1>{character.name}</h1>
+        <h1>
+          {`${character.name} - ${alignment}`}
+        </h1>
         <div>
           <img src={character.images.md} alt={character.name} style={alignmentStyle} />
 
-          <table style={{ width: '100%' }}>
+          <table>
             <tbody>
               <tr>
                 <th>Full Name: </th>

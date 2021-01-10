@@ -16,7 +16,8 @@
   align-items: center;
   flex-direction: column;
   margin: calc(7.5vw + 150px) 10px 10px;
-  padding: 10px 5vw;
+  padding: 10px 5vw 50px;
+  background-color: lightgrey;
   cursor: auto;
 
   h1 {
@@ -32,10 +33,10 @@
 
     table {
       max-width: 50%;
-      margin: 0 15px;
+      margin-left: 15px;
 
       .powerCaption {
-        padding: 25px 45px 10px;
+        padding: 25px calc(5px + 5vw) 10px;
         font-weight: 700;
       }
 
@@ -44,7 +45,7 @@
       }
 
       td {
-        min-width: 200px;
+        min-width: 150px;
         text-align: left;
         padding-left: 15px;
       }
