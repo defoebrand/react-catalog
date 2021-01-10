@@ -44,7 +44,6 @@ const Navbar = ({ dispatch, history, display }) => {
         <input value={input} onChange={handleChange} />
       </div>
       <button type="button" className="batLogo" onClick={handleClick}><img src={batLogo} alt="BatComputer" /></button>
-
     </header>
   );
 };

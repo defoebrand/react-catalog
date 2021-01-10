@@ -1,25 +1,23 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Navbar from '../components/Navbar';
-
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import store from '../redux/store';
 
-describe('rendered Button', () => {
+import App from '../containers/App';
+
+describe('rendered App', () => {
   let renderedComponent;
 
   beforeEach(() => {
-    const history = {
-      location: {
-        pathname: '/all',
-      },
-    };
-
     renderedComponent = render(
-      <Provider store={store}>
-        <Navbar history={history} />
-      </Provider>,
+
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>,
     );
   });
 
@@ -29,14 +27,8 @@ describe('rendered Button', () => {
 
   it('does things', () => {
     const { container } = renderedComponent;
-    const element = container.querySelector('header');
-    expect(element).toBeInTheDocument();
-  });
-
-  it('does things', () => {
-    const { getByText } = renderedComponent;
-    const element = getByText(/BatComputer/i);
-    expect(element).toBeInTheDocument();
+    const appElement = container.querySelector('div');
+    expect(appElement.classList).toContain('App');
   });
 
   it('does things', () => {
@@ -78,5 +70,11 @@ describe('rendered Button', () => {
     const { container } = renderedComponent;
     const inputElement = container.querySelector('input');
     expect(inputElement.value).toBe('');
+  });
+
+  it('does things', () => {
+    const { container } = renderedComponent;
+    const appElement = container.querySelector('main');
+    expect(appElement.classList).toContain('Display');
   });
 });

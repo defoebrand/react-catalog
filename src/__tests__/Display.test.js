@@ -6,32 +6,47 @@ import Display from '../components/Display';
 
 import store from '../redux/store';
 
-// const entry = [{
-//   slug: '1-SuperHero',
-//   name: 'Superhero',
-//   biography: {
-//     alignment: 'good',
-//   },
-//   images: {
-//     sm: '../assets/batLogo.png',
-//   },
-// }];
+describe('rendered Button', () => {
+  let renderedComponent;
 
-const dataMap = (<h1>Superhero</h1>);
+  const entry = [{
+    slug: '1-SuperHero',
+    name: 'Superhero',
+    biography: {
+      alignment: 'good',
+    },
+    images: {
+      sm: '../assets/batLogo.png',
+    },
+  }];
 
-const history = {
-  location: {
-    pathname: '/all',
-  },
-};
+  const history = {
+    location: {
+      pathname: '/all',
+    },
+  };
 
-test('renders Button', () => {
-  render(
-    <Provider store={store}>
-      <Display dataMap={dataMap} history={history} />
-    </Provider>,
-  );
-  // const element = screen.secondChild;
-  // const element = screen.getByText(/Superhero/i);
-  // expect(element).toBeInTheDocument();
+  beforeEach(() => {
+    renderedComponent = render(
+      <Provider store={store}>
+        <Display filter="" entries={entry} history={history} />
+      </Provider>,
+    );
+  });
+
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
+  it('does things', () => {
+    const { getByRole } = renderedComponent;
+    const main = getByRole('main', { name: '' });
+    expect(main).toBeInTheDocument();
+  });
+
+  it('does things', () => {
+    const { container } = renderedComponent;
+    const appElement = container.querySelector('main');
+    expect(appElement.classList).toContain('Display');
+  });
 });
