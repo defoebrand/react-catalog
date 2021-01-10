@@ -1,11 +1,20 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+
+import batLogo from '../assets/batLogo.png';
 
 import { runSearch, displayEntries } from '../redux/actions';
 
 import '../styles/Navbar.scss';
 
 const Navbar = ({ dispatch, history, display }) => {
+  useEffect(() => {
+    if (display === '' && history.location.pathname !== '/all') {
+      history.push('/all');
+    }
+  }, []);
+
   let input;
 
   const handleChange = event => {
@@ -29,12 +38,12 @@ const Navbar = ({ dispatch, history, display }) => {
 
   return (
     <header className="Navbar">
-      <button type="button" className="batLogo" onClick={handleClick}><img src="./batLogo.png" alt="BatComputer" /></button>
+      <button type="button" className="batLogo" onClick={handleClick}><img src={batLogo} alt="BatComputer" /></button>
       <div>
         <h1>BatComputer</h1>
         <input value={input} onChange={handleChange} />
       </div>
-      <button type="button" className="batLogo" onClick={handleClick}><img src="./batLogo.png" alt="BatComputer" /></button>
+      <button type="button" className="batLogo" onClick={handleClick}><img src={batLogo} alt="BatComputer" /></button>
 
     </header>
   );

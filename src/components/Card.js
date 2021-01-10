@@ -13,90 +13,97 @@ const Card = ({
   }
 
   let displayCard;
-
+  let alignmentStyle;
   if (display === 'singleCard') {
+    alignmentStyle = character.biography.alignment === 'good'
+      ? { border: '3px solid blue' }
+      : { border: '3px solid red' };
     displayCard = (
-      <div key={character.slug} className="singleCard">
+      <div key={character.slug} className="card singleCard">
         <h1>{character.name}</h1>
-        <img src={character.images.lg} alt={character.name} />
-        <table style={{ width: '100%' }}>
-          <tbody>
-            <tr>
-              <th>Full Name: </th>
-              <td><h3>{character.biography.fullName}</h3></td>
-            </tr>
-            <tr>
-              <th>First Appearance: </th>
-              <td>{character.biography.firstAppearance}</td>
-            </tr>
-            <tr>
-              <th>Gender: </th>
-              <td>{character.appearance.gender}</td>
-            </tr>
-            <tr>
-              <th>Height: </th>
-              <td>{character.appearance.height[0]}</td>
-            </tr>
-            <tr>
-              <th>Weight: </th>
-              <td>{character.appearance.weight[0]}</td>
-            </tr>
-            <tr>
-              <th>Eye Color: </th>
-              <td>{character.appearance.eyeColor}</td>
-            </tr>
-            <tr>
-              <th>Hair Color: </th>
-              <td>{character.appearance.hairColor}</td>
-            </tr>
-            <tr>
-              <th>Race: </th>
-              <td>{character.appearance.race}</td>
-            </tr>
-            <tr>
-              <th>Affiliation: </th>
-              <td>{character.connections.groupAffiliation}</td>
-            </tr>
-            <tr>
-              <th>Relatives: </th>
-              <td>{character.connections.relatives}</td>
-            </tr>
-            <tr>
+        <div>
+          <img src={character.images.md} alt={character.name} style={alignmentStyle} />
 
-              <td>POWER STATS</td>
-            </tr>
-
-            <tr>
-              <th>Combat: </th>
-              <td>{character.powerstats.combat}</td>
-            </tr>
-            <tr>
-              <th>Durability: </th>
-              <td>{character.powerstats.durability}</td>
-            </tr>
-            <tr>
-              <th>Intelligence: </th>
-              <td>{character.powerstats.intelligence}</td>
-            </tr>
-            <tr>
-              <th>Power: </th>
-              <td>{character.powerstats.power}</td>
-            </tr>
-            <tr>
-              <th>Speed: </th>
-              <td>{character.powerstats.speed}</td>
-            </tr>
-            <tr>
-              <th>Strength: </th>
-              <td>{character.powerstats.strength}</td>
-            </tr>
-          </tbody>
-        </table>
+          <table style={{ width: '100%' }}>
+            <tbody>
+              <tr>
+                <th>Full Name: </th>
+                <td><h3>{character.biography.fullName}</h3></td>
+              </tr>
+              <tr>
+                <th>First Appearance: </th>
+                <td>{character.biography.firstAppearance}</td>
+              </tr>
+              <tr>
+                <th>Gender: </th>
+                <td>{character.appearance.gender}</td>
+              </tr>
+              <tr>
+                <th>Height: </th>
+                <td>{`${character.appearance.height[0]}"`}</td>
+              </tr>
+              <tr>
+                <th>Weight: </th>
+                <td>{character.appearance.weight[0]}</td>
+              </tr>
+              <tr>
+                <th>Eye Color: </th>
+                <td>{character.appearance.eyeColor}</td>
+              </tr>
+              <tr>
+                <th>Hair Color: </th>
+                <td>{character.appearance.hairColor}</td>
+              </tr>
+              <tr>
+                <th>Race: </th>
+                <td>{character.appearance.race}</td>
+              </tr>
+              <tr>
+                <th>Affiliation: </th>
+                <td>{character.connections.groupAffiliation}</td>
+              </tr>
+              <tr>
+                <th>Relatives: </th>
+                <td>{character.connections.relatives}</td>
+              </tr>
+              <tr>
+                <td colSpan="2" className="powerCaption">POWER STATS</td>
+              </tr>
+              <tr>
+                <th>Combat: </th>
+                <td>{character.powerstats.combat}</td>
+              </tr>
+              <tr>
+                <th>Durability: </th>
+                <td>{character.powerstats.durability}</td>
+              </tr>
+              <tr>
+                <th>Intelligence: </th>
+                <td>{character.powerstats.intelligence}</td>
+              </tr>
+              <tr>
+                <th>Power: </th>
+                <td>{character.powerstats.power}</td>
+              </tr>
+              <tr>
+                <th>Speed: </th>
+                <td>{character.powerstats.speed}</td>
+              </tr>
+              <tr>
+                <th>Strength: </th>
+                <td>{character.powerstats.strength}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   } else {
+    alignmentStyle = entry.biography.alignment === 'good'
+      ? { border: '3px solid blue' }
+      : { border: '3px solid red' };
     displayCard = (
-      <button type="button" key={entry.slug} className="manyCards" onClick={() => clickEvent(entry)}>
+      <button type="button" key={entry.slug} className="card manyCards" onClick={() => clickEvent(entry)} style={alignmentStyle}>
         <p>{entry.name}</p>
         <img src={entry.images.sm} alt={entry.name} />
       </button>
@@ -116,11 +123,12 @@ Card.propTypes = {
     name: PropTypes.string,
     slug: PropTypes.string,
     images: PropTypes.shape({
-      lg: PropTypes.string,
+      md: PropTypes.string,
     }),
     biography: PropTypes.shape({
       fullName: PropTypes.string,
       firstAppearance: PropTypes.string,
+      alignment: PropTypes.string,
     }),
     appearance: PropTypes.shape({
       gender: PropTypes.string,
@@ -148,6 +156,9 @@ Card.propTypes = {
     slug: PropTypes.string,
     images: PropTypes.shape({
       sm: PropTypes.string,
+    }),
+    biography: PropTypes.shape({
+      alignment: PropTypes.string,
     }),
   }),
   display: PropTypes.string,
