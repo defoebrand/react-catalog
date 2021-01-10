@@ -30,8 +30,12 @@ const Navbar = ({ dispatch, history, display }) => {
   return (
     <header className="Navbar">
       <button type="button" className="batLogo" onClick={handleClick}><img src="./batLogo.png" alt="BatComputer" /></button>
-      <h1>BatComputer</h1>
-      <input value={input} onChange={handleChange} />
+      <div>
+        <h1>BatComputer</h1>
+        <input value={input} onChange={handleChange} />
+      </div>
+      <button type="button" className="batLogo" onClick={handleClick}><img src="./batLogo.png" alt="BatComputer" /></button>
+
     </header>
   );
 };
