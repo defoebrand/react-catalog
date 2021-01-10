@@ -6,7 +6,7 @@ import Card from '../components/Card';
 
 import store from '../redux/store';
 
-describe('rendered Button', () => {
+describe('rendered Card', () => {
   let renderedComponent;
   const entry = {
     slug: '1-SuperHero',
@@ -31,21 +31,21 @@ describe('rendered Button', () => {
     jest.resetAllMocks();
   });
 
-  it('does things', () => {
+  it('has a text element that displays the entry name', () => {
     const { getByText } = renderedComponent;
     const element = getByText(/Superhero/i);
     expect(element).toBeInTheDocument();
     expect(element.textContent).not.toBe('1-SuperHero');
   });
 
-  it('does things', () => {
+  it('displays a blue border if alignment is "good"', () => {
     const card = document.querySelector('.manyCards');
     const style = window.getComputedStyle(card);
     expect(style.border).toBe('3px solid blue');
     expect(style.border).not.toBe('3px solid red');
   });
 
-  it('does things', () => {
+  it('has an image element that displays the associated url', () => {
     const card = document.querySelector('img');
     expect(card.src).toBe('http://localhost/assets/batLogo.png');
     expect(card.alt).toBe('Superhero');

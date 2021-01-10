@@ -6,7 +6,7 @@ import Display from '../components/Display';
 
 import store from '../redux/store';
 
-describe('rendered Button', () => {
+describe('rendered Display', () => {
   let renderedComponent;
 
   const entry = [{
@@ -38,13 +38,13 @@ describe('rendered Button', () => {
     jest.resetAllMocks();
   });
 
-  it('does things', () => {
+  it('has a main role with no name', () => {
     const { getByRole } = renderedComponent;
     const main = getByRole('main', { name: '' });
     expect(main).toBeInTheDocument();
   });
 
-  it('does things', () => {
+  it('has a main element with class Display', () => {
     const { container } = renderedComponent;
     const appElement = container.querySelector('main');
     expect(appElement.classList).toContain('Display');

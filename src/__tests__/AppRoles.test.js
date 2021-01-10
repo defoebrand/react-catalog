@@ -24,39 +24,39 @@ describe('rendered App', () => {
     jest.resetAllMocks();
   });
 
-  it('does things', () => {
+  it('has a banner role with no name', () => {
     const { getByRole } = renderedComponent;
     const banner = getByRole('banner', { name: '' });
     expect(banner).toBeInTheDocument();
   });
 
-  it('does things', () => {
+  it('has a button role named BatComputer with two buttons', () => {
     const { getAllByRole } = renderedComponent;
     const batButtons = getAllByRole('button', { name: 'BatComputer' });
     expect(batButtons[0]).toBeInTheDocument();
     expect(batButtons[1]).toBeInTheDocument();
   });
 
-  it('does things', () => {
+  it('has an image role named BatComputer with two images', () => {
     const { getAllByRole } = renderedComponent;
     const batImages = getAllByRole('img', { name: 'BatComputer' });
     expect(batImages[0]).toBeInTheDocument();
     expect(batImages[1]).toBeInTheDocument();
   });
 
-  it('does things', () => {
+  it('has a heading role named BatComputer', () => {
     const { getByRole } = renderedComponent;
     const heading = getByRole('heading', { name: 'BatComputer' });
     expect(heading).toBeInTheDocument();
   });
 
-  it('does things', () => {
+  it('has a textbox role with no name', () => {
     const { getByRole } = renderedComponent;
     const textbox = getByRole('textbox', { name: '' });
     expect(textbox).toBeInTheDocument();
   });
 
-  it('does things', () => {
+  it('has a main role with no name', () => {
     const { getByRole } = renderedComponent;
     const main = getByRole('main', { name: '' });
     expect(main).toBeInTheDocument();
