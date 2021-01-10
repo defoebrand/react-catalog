@@ -21,7 +21,7 @@ The project is a react catalog app designed to display resources fetched from an
 
 
 ## Live Demo
-Try it out [here](https://react-catalog.netlify.app)
+Try it out [here](https://batcomputer.netlify.app)
 #### Deployed on: Heroku
 
 
