@@ -1,19 +1,25 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
-import { displayEntry } from '../redux/actions';
+import {
+  displayEntry, displayEntries,
+} from '../redux/actions';
 
 import Card from './Card';
 
 import '../styles/Display.scss';
 
-const AllCharacters = ({
+const Display = ({
   filter, entries, dispatch, history,
 }) => {
+  useEffect(() => {
+    dispatch(displayEntries('manyCards'));
+  }, []);
+
   const handleClick = character => {
     dispatch(displayEntry(character));
-    const alignment = '/card';
-    history.push(`${alignment}/${character.name}`);
+    history.push(`/stats/${character.name}`);
   };
 
   const regex = new RegExp(filter, 'i');
@@ -27,20 +33,20 @@ const AllCharacters = ({
   );
 
   return (
-    <main className="AllCharacters">
+    <main className="Display">
       {dataMap}
     </main>
   );
 };
 
-AllCharacters.propTypes = {
+Display.propTypes = {
   filter: PropTypes.string,
   entries: PropTypes.arrayOf(PropTypes.shape()),
   dispatch: PropTypes.func.isRequired,
   history: PropTypes.shape().isRequired,
 };
 
-AllCharacters.defaultProps = {
+Display.defaultProps = {
   filter: '',
   entries: [],
 };
@@ -48,4 +54,4 @@ AllCharacters.defaultProps = {
 export default connect(state => ({
   filter: state.searchReducer.filter,
   entries: state.superHeroReducer.entries,
-}))(AllCharacters);
+}))(Display);

@@ -10,7 +10,7 @@ const App = () => (
   <div className="App">
     <Route path="/" component={Navbar} />
     <Route path="/all" component={Display} />
-    <Route path="/card/:super" component={Card} />
+    <Route path="/stats/:super" component={Card} />
   </div>
 );
 

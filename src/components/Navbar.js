@@ -1,25 +1,29 @@
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
-import { runSearch, createEntries, displayEntries } from '../redux/actions';
+import batLogo from '../assets/batLogo.png';
+
+import { runSearch, createEntries } from '../redux/actions';
 
 import '../styles/Navbar.scss';
 
 const Navbar = ({ dispatch, history, display }) => {
   useEffect(() => {
     fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
-      dispatch(createEntries([...data.slice(0, 5)]));
+      dispatch(createEntries(data));
       history.push('/all');
     }).catch(err => err);
+  }, []);
+  useEffect(() => {
+    if (display === '' && history.location.pathname !== '/all') {
+      history.push('/all');
+    }
   }, []);
 
   let input;
 
   const handleChange = event => {
-    if (display === 'singleCard') {
-      dispatch(displayEntries('manyCards'));
-    }
     if (history.location.pathname !== '/all') {
       history.push('/all');
     }
@@ -28,18 +32,18 @@ const Navbar = ({ dispatch, history, display }) => {
   };
 
   const handleClick = () => {
-    if (display === 'singleCard') {
-      dispatch(displayEntries('manyCards'));
-    }
     dispatch(runSearch(''));
     history.push('/all');
   };
 
   return (
     <header className="Navbar">
-      <button type="button" className="batLogo" onClick={handleClick}><img src="./batLogo.png" alt="BatComputer" /></button>
-      <h1>BatComputer</h1>
-      <input value={input} onChange={handleChange} />
+      <button type="button" className="batLogo" onClick={handleClick}><img src={batLogo} alt="BatComputer" /></button>
+      <div>
+        <h1>BatComputer</h1>
+        <input value={input} onChange={handleChange} />
+      </div>
+      <button type="button" className="batLogo" onClick={handleClick}><img src={batLogo} alt="BatComputer" /></button>
     </header>
   );
 };

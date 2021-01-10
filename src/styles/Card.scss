@@ -1,21 +1,54 @@
-.singleCard {
-  border: 1px solid white;
+.manyCards {
   margin: 10px;
   padding: 10px;
-  cursor: pointer;
-
-  img {
-    max-width: 100%;
-  }
+  cursor: crosshair;
+  font-weight: 700;
 }
 
-.manyCards {
-  border: 1px solid white;
-  margin: 10px;
-  padding: 10px;
-  cursor: pointer;
+.manyCards:hover {
+  color: black;
+  background-color: lightgrey;
+}
 
-  img {
-    max-width: 100%;
+.singleCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: calc(7.5vw + 150px) 10px 10px;
+  padding: 10px 5vw 50px;
+  background-color: lightgrey;
+  cursor: auto;
+
+  h1 {
+    font-weight: 700;
+  }
+
+  div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    table {
+      max-width: 50%;
+      margin-left: 15px;
+
+      .powerCaption {
+        padding: 25px calc(5px + 5vw) 10px;
+        font-weight: 700;
+      }
+
+      th {
+        text-align: right;
+      }
+
+      td {
+        min-width: 150px;
+        text-align: left;
+        padding-left: 15px;
+      }
+    }
   }
 }

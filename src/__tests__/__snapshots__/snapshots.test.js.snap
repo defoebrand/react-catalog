@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`spanshots renders App correctly 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="Navbar"
+  >
+    <button
+      className="batLogo"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="BatComputer"
+        src="batLogo.png"
+      />
+    </button>
+    <div>
+      <h1>
+        BatComputer
+      </h1>
+      <input
+        onChange={[Function]}
+      />
+    </div>
+    <button
+      className="batLogo"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="BatComputer"
+        src="batLogo.png"
+      />
+    </button>
+  </header>
+</div>
+`;
+
+exports[`spanshots renders Card correctly 1`] = `
+<button
+  className="manyCards"
+  onClick={[Function]}
+  style={
+    Object {
+      "border": "3px solid blue",
+    }
+  }
+  type="button"
+>
+  <p>
+    Superhero
+  </p>
+  <img
+    alt="Superhero"
+    src="../assets/batLogo.png"
+  />
+</button>
+`;
+
+exports[`spanshots renders Card correctly 2`] = `
+<main
+  className="Display"
+/>
+`;
+
+exports[`spanshots renders Navbar correctly 1`] = `
+<header
+  className="Navbar"
+>
+  <button
+    className="batLogo"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="BatComputer"
+      src="batLogo.png"
+    />
+  </button>
+  <div>
+    <h1>
+      BatComputer
+    </h1>
+    <input
+      onChange={[Function]}
+    />
+  </div>
+  <button
+    className="batLogo"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="BatComputer"
+      src="batLogo.png"
+    />
+  </button>
+</header>
+`;

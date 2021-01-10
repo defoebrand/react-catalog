@@ -1,15 +1,22 @@
-> This project is a React based catalog built as the capstone project for the Microverse React module coursework.
+> This project is a React based catalog built is the capstone project for the Microverse React module coursework. It is meant to emulate the Bat Computer's resource cataloging stats of both Heros and Villians.
 
 ## Project Description
 
-The project is a react catalog app designed to display resources fetched from an API.
+The project is a react catalog app designed to display resources fetched from an API. It fetches a list of Superheroes and Supervillians that can be filtered by name and displays data upon click selection.
 
 ###### Screenshot coming soon!
 
 #### Features
--   To Be Determined Upon Completion
+-   Lists Heroes and Villians from throughout the MultiVerse
+-   Easy searching by typing into the search bar.
+-   Return to catalog display by clicking a bat symbol or typing into the input bar.
+-   Dynamic URL creation displays the name of the selection
+-   Image border displays Blue for Heroes
+-   Image border displays Red for Villians
 
 ###### Coming Features
+-   Enhanced search filters
+-   Increased catalog inventory
 
 ## Built With
 -   Atom
@@ -21,7 +28,7 @@ The project is a react catalog app designed to display resources fetched from an
 
 
 ## Live Demo
-Try it out [here](https://react-catalog.netlify.app)
+Try it out [here](https://batcomputer.netlify.app)
 #### Deployed on: Heroku
 
 
