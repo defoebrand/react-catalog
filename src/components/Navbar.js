@@ -4,11 +4,17 @@ import { useEffect } from 'react';
 
 import batLogo from '../assets/batLogo.png';
 
-import { runSearch, displayEntries } from '../redux/actions';
+import { runSearch, createEntries } from '../redux/actions';
 
 import '../styles/Navbar.scss';
 
 const Navbar = ({ dispatch, history, display }) => {
+  useEffect(() => {
+    fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
+      dispatch(createEntries([...data.slice(0, 5)]));
+      history.push('/all');
+    }).catch(err => err);
+  }, []);
   useEffect(() => {
     if (display === '' && history.location.pathname !== '/all') {
       history.push('/all');
@@ -18,9 +24,6 @@ const Navbar = ({ dispatch, history, display }) => {
   let input;
 
   const handleChange = event => {
-    if (display === 'singleCard') {
-      dispatch(displayEntries('manyCards'));
-    }
     if (history.location.pathname !== '/all') {
       history.push('/all');
     }
@@ -29,10 +32,7 @@ const Navbar = ({ dispatch, history, display }) => {
   };
 
   const handleClick = () => {
-    if (display === 'singleCard') {
-      dispatch(displayEntries('manyCards'));
-    }
-    dispatch(runSearch(''));
+    dispatch(runSearch(input));
     history.push('/all');
   };
 

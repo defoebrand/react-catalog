@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-import { createEntries, displayEntry } from '../redux/actions';
+import {
+  displayEntry, displayEntries,
+} from '../redux/actions';
 
 import Card from './Card';
 
@@ -12,16 +14,12 @@ const Display = ({
   filter, entries, dispatch, history,
 }) => {
   useEffect(() => {
-    fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
-      dispatch(createEntries(data));
-      history.push('/all');
-    }).catch(err => err);
+    dispatch(displayEntries('manyCards'));
   }, []);
 
   const handleClick = character => {
     dispatch(displayEntry(character));
-    const alignment = '/card';
-    history.push(`${alignment}/${character.name}`);
+    history.push(`/stats/${character.name}`);
   };
 
   const regex = new RegExp(filter, 'i');

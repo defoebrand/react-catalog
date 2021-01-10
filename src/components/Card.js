@@ -23,7 +23,7 @@ const Card = ({
       ? { border: '3px solid blue' }
       : { border: '3px solid red' };
     displayCard = (
-      <div key={character.slug} className="card singleCard">
+      <div key={character.slug} className="singleCard">
         <h1>
           {`${character.name} - ${alignment}`}
         </h1>
@@ -109,7 +109,7 @@ const Card = ({
       ? { border: '3px solid blue' }
       : { border: '3px solid red' };
     displayCard = (
-      <button type="button" key={entry.slug} className="card manyCards" onClick={() => clickEvent(entry)} style={alignmentStyle}>
+      <button type="button" key={entry.slug} className="manyCards" onClick={() => clickEvent(entry)} style={alignmentStyle}>
         <p>{entry.name}</p>
         <img src={entry.images.sm} alt={entry.name} />
       </button>
