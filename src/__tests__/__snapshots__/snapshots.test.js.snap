@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`spanshots renders App correctly 1`] = `
+exports['spanshots renders App correctly 1'] = `
 <div
   className="App"
 >
@@ -39,7 +39,7 @@ exports[`spanshots renders App correctly 1`] = `
 </div>
 `;
 
-exports[`spanshots renders Card correctly 1`] = `
+exports['spanshots renders Card correctly 1'] = `
 <button
   className="manyCards"
   onClick={[Function]}
@@ -60,13 +60,13 @@ exports[`spanshots renders Card correctly 1`] = `
 </button>
 `;
 
-exports[`spanshots renders Card correctly 2`] = `
+exports['spanshots renders Card correctly 2'] = `
 <main
   className="Display"
 />
 `;
 
-exports[`spanshots renders Navbar correctly 1`] = `
+exports['spanshots renders Navbar correctly 1'] = `
 <header
   className="Navbar"
 >
