@@ -23,17 +23,11 @@ describe('spanshots', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  const history = {
-    location: {
-      pathname: '/all',
-    },
-  };
-
   it('renders Navbar correctly', () => {
     const tree = renderer
       .create(
         <Provider store={store}>
-          <Navbar history={history} />
+          <Navbar />
         </Provider>,
       )
       .toJSON();
@@ -66,7 +60,7 @@ describe('spanshots', () => {
     const tree = renderer
       .create(
         <Provider store={store}>
-          <Display filter="" entries={entry} history={history} />
+          <Display filter="" entries={entry} />
         </Provider>,
       )
       .toJSON();

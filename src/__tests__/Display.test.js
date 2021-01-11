@@ -20,16 +20,10 @@ describe('rendered Display', () => {
     },
   }];
 
-  const history = {
-    location: {
-      pathname: '/all',
-    },
-  };
-
   beforeEach(() => {
     renderedComponent = render(
       <Provider store={store}>
-        <Display filter="" entries={entry} history={history} />
+        <Display filter="" entries={entry} />
       </Provider>,
     );
   });

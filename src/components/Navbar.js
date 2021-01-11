@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import batLogo from '../assets/batLogo.png';
 
@@ -8,7 +9,9 @@ import { runSearch, createEntries } from '../redux/actions';
 
 import '../styles/Navbar.scss';
 
-const Navbar = ({ dispatch, history, display }) => {
+const Navbar = ({ dispatch, display }) => {
+  const history = useHistory();
+  const location = useLocation();
   useEffect(() => {
     fetch('https://akabab.github.io/superhero-api/api/all.json').then(response => response.json()).then(data => {
       dispatch(createEntries(data));
@@ -16,7 +19,7 @@ const Navbar = ({ dispatch, history, display }) => {
     }).catch(err => err);
   }, []);
   useEffect(() => {
-    if (display === '' && history.location.pathname !== '/all') {
+    if (display === '' && location.pathname !== '/all') {
       history.push('/all');
     }
   }, []);
@@ -24,7 +27,7 @@ const Navbar = ({ dispatch, history, display }) => {
   let input;
 
   const handleChange = event => {
-    if (history.location.pathname !== '/all') {
+    if (location.pathname !== '/all') {
       history.push('/all');
     }
     input = event.target.value;
@@ -50,7 +53,6 @@ const Navbar = ({ dispatch, history, display }) => {
 
 Navbar.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  history: PropTypes.shape().isRequired,
   display: PropTypes.string,
 };
 

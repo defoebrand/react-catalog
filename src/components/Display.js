@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import {
   displayEntry, displayEntries,
@@ -10,9 +11,8 @@ import Card from './Card';
 
 import '../styles/Display.scss';
 
-const Display = ({
-  filter, entries, dispatch, history,
-}) => {
+const Display = ({ filter, entries, dispatch }) => {
+  const history = useHistory();
   useEffect(() => {
     dispatch(displayEntries('manyCards'));
   }, []);
@@ -43,7 +43,6 @@ Display.propTypes = {
   filter: PropTypes.string,
   entries: PropTypes.arrayOf(PropTypes.shape()),
   dispatch: PropTypes.func.isRequired,
-  history: PropTypes.shape().isRequired,
 };
 
 Display.defaultProps = {
