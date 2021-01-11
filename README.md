@@ -1,4 +1,4 @@
-> This project is a React based catalog built is the capstone project for the Microverse React module coursework. It is meant to emulate the Bat Computer's resource cataloging stats of both Heros and Villians.
+> This project is a React based catalog built as the capstone project for the Microverse React module coursework. It is meant to emulate the Bat Computer's resource cataloging stats of both Heros and Villians.
 
 ## Project Description
 
