@@ -6,19 +6,20 @@ import Navbar from '../components/Navbar';
 
 import store from '../redux/store';
 
-describe('rendered Button', () => {
+describe('rendered Navbar', () => {
   let renderedComponent;
 
   beforeEach(() => {
+    const history = {
+      location: {
+        pathname: '/all',
+      },
+    };
     renderedComponent = render(
       <Provider store={store}>
-        <Navbar />
+        <Navbar history={history} />
       </Provider>,
     );
-  });
-
-  afterEach(() => {
-    jest.resetAllMocks();
   });
 
   it('has a header with class Navbar', () => {

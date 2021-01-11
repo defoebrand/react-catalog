@@ -28,10 +28,6 @@ describe('rendered Display', () => {
     );
   });
 
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
-
   it('has a main role with no name', () => {
     const { getByRole } = renderedComponent;
     const main = getByRole('main', { name: '' });

@@ -27,10 +27,6 @@ describe('rendered Card', () => {
     );
   });
 
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
-
   it('has a text element that displays the entry name', () => {
     const { getByText } = renderedComponent;
     const element = getByText(/Superhero/i);

@@ -21,10 +21,6 @@ describe('rendered App', () => {
     );
   });
 
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
-
   it('has a div with class App', () => {
     const { container } = renderedComponent;
     const appElement = container.querySelector('div');
