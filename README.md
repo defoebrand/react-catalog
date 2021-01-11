@@ -4,13 +4,13 @@
 
 The project is a react catalog app designed to display resources fetched from an API. It fetches a list of Superheroes and Supervillians that can be filtered by name and displays data upon click selection.
 
-###### Screenshot coming soon!
+![screenshot](src/assets/screenshot.png)
 
 #### Features
 -   Lists Heroes and Villians from throughout the MultiVerse
 -   Easy searching by typing into the search bar.
 -   Return to catalog display by clicking a bat symbol or typing into the input bar.
--   Dynamic URL creation displays the name of the selection
+-   Dynamic URL creation displays the name of the selection as an extension of the webpage url
 -   Image border displays Blue for Heroes
 -   Image border displays Red for Villians
 
@@ -26,9 +26,16 @@ The project is a react catalog app designed to display resources fetched from an
 -   React-Create-App
 -   JavaScript ES6 / HTML / CSS
 
+### To Use;
+-   To look for a character, simply scroll down or begin a search
+-   Searches do not begin with the first letter of a character's name, for example typing 'star' would return both Firestar and Star-Lord
+-   Clicking on a character card will display the stats of that character
+-   Clicking the bat symbol will return your search to the full directory of characters
+-   Typing into the search bar will continue a search of the full directory, even from the character stats display page
+
 
 ## Live Demo
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b56b21f1-c0a4-49b4-a506-a8c5a311b6fb/deploy-status)](https://app.netlify.com/sites/batcomputer/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b56b21f1-c0a4-49b4-a506-a8c5a311b6fb/deploy-status)](https://app.netlify.com/sites/batcomputer/deploys)  
 Try it out [here](https://batcomputer.netlify.app)
 #### Deployed on: Netlify
 
