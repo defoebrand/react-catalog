@@ -24,10 +24,15 @@ describe('spanshots', () => {
   });
 
   it('renders Navbar correctly', () => {
+    const history = {
+      location: {
+        pathname: '/all',
+      },
+    };
     const tree = renderer
       .create(
         <Provider store={store}>
-          <Navbar />
+          <Navbar history={history} />
         </Provider>,
       )
       .toJSON();

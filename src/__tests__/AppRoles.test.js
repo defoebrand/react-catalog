@@ -20,10 +20,6 @@ describe('rendered App', () => {
     );
   });
 
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
-
   it('has a banner role with no name', () => {
     const { getByRole } = renderedComponent;
     const banner = getByRole('banner', { name: '' });
