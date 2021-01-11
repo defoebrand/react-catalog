@@ -26,7 +26,7 @@ The project is a react catalog app designed to display resources fetched from an
 -   React-Create-App
 -   JavaScript ES6 / HTML / CSS
 
-### To Use;
+### To Use
 -   To look for a character, simply scroll down or begin a search
 -   Searches do not begin with the first letter of a character's name, for example typing 'star' would return both Firestar and Star-Lord
 -   Clicking on a character card will display the stats of that character
