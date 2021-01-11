@@ -8,7 +8,7 @@ import '../styles/App.scss';
 
 const App = () => (
   <div className="App">
-    <Route path="/" component={Navbar} />
+    <Navbar />
     <Route path="/all" component={Display} />
     <Route path="/stats/:super" component={Card} />
   </div>
