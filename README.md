@@ -87,7 +87,7 @@ If you've read this far....give us a ⭐️!
 
 -   Microverse
 -   [Marc-Antoine Roy on Behance](https://www.behance.net/enfantroy)
--   Batman™ is property of [DC] (https://www.dccomics.com/copyright)
+-   Batman™ is property of [DC](https://www.dccomics.com/copyright)
 -   [Superhero-api](https://akabab.github.io/superhero-api/) as provided by [akabab](https://github.com/akabab)
 
 ## 📝 License
