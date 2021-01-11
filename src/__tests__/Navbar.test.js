@@ -10,15 +10,9 @@ describe('rendered Button', () => {
   let renderedComponent;
 
   beforeEach(() => {
-    const history = {
-      location: {
-        pathname: '/all',
-      },
-    };
-
     renderedComponent = render(
       <Provider store={store}>
-        <Navbar history={history} />
+        <Navbar />
       </Provider>,
     );
   });

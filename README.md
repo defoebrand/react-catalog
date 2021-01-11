@@ -28,8 +28,9 @@ The project is a react catalog app designed to display resources fetched from an
 
 
 ## Live Demo
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b56b21f1-c0a4-49b4-a506-a8c5a311b6fb/deploy-status)](https://app.netlify.com/sites/batcomputer/deploys)
 Try it out [here](https://batcomputer.netlify.app)
-#### Deployed on: Heroku
+#### Deployed on: Netlify
 
 
 ## Getting Started Locally
@@ -78,6 +79,9 @@ If you've read this far....give us a ⭐️!
 ## :clap: Acknowledgements
 
 -   Microverse
+-   [Marc-Antoine Roy on Behance](https://www.behance.net/enfantroy)
+-   Batman™ is property of [DC] (https://www.dccomics.com/copyright)
+-   [Superhero-api](https://akabab.github.io/superhero-api/) as provided by [akabab](https://github.com/akabab)
 
 ## 📝 License
 
