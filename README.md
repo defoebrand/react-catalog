@@ -21,8 +21,8 @@ The project is a react catalog app designed to display resources fetched from an
 ## Built With
 -   Atom
 -   Ubuntu
--   Node.js / npm 
--   React / React-DOM / Redux
+-   Node.js / npm
+-   React / React-DOM / Redux / React-Router
 -   React-Create-App
 -   JavaScript ES6 / HTML / CSS
 
@@ -35,9 +35,8 @@ The project is a react catalog app designed to display resources fetched from an
 
 
 ## Live Demo
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b56b21f1-c0a4-49b4-a506-a8c5a311b6fb/deploy-status)](https://app.netlify.com/sites/batcomputer/deploys)  
+#### Deployed on: [![Netlify Status](https://api.netlify.com/api/v1/badges/b56b21f1-c0a4-49b4-a506-a8c5a311b6fb/deploy-status)](https://app.netlify.com/sites/batcomputer/deploys)  
 Try it out [here](https://batcomputer.netlify.app)
-#### Deployed on: Netlify
 
 
 ## Getting Started Locally
@@ -61,7 +60,7 @@ Run `npm start` to begin the server.<br>
 Navigate to `http://localhost:3000/` in a browser of your choice to see the application running<br>
 
 ### Testing
-This project uses Jest for testing.
+This project uses React Testing Library and Jest-Dom for testing.
 > To run tests open a terminal inside the project's root directory and enter `npm test`
 
 ## Authors
