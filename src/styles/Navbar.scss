@@ -1,0 +1,44 @@
+.Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(5px + 2.5vw);
+  color: white;
+  padding: 25px;
+  padding-bottom: 2.5vh;
+
+  .batLogo {
+    width: 30%;
+    max-width: 350px;
+    border: none;
+    background-color: inherit;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  div {
+    padding: 15px;
+
+    h1 {
+      width: 65%;
+      margin: 0;
+    }
+
+    input {
+      border-radius: 4px;
+      padding: 5px;
+      width: 90%;
+      margin: 25px 0 15px;
+      height: 2.5vmin;
+      font-weight: 700;
+    }
+  }
+}
