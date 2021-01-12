@@ -40,7 +40,6 @@ Try it out [here](https://batcomputer.netlify.app)
 
 
 ## Getting Started Locally
-
 ### Prerequisities
 To get this project up and running locally, you must have node and npm installed on your computer.
 
